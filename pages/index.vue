@@ -1,11 +1,15 @@
-<template>
+<!-- <template>
     <div>
-      home page
       <NuxtLink :to="{
-        name: 'country'
-      }">Country</NuxtLink>
+        name: 'countries'
+      }">go to countries</NuxtLink>
 
   
 
     </div>
+  </template> -->
+  <template>
+
   </template>
+  <script setup>
+</script>

@@ -30,6 +30,7 @@
   const getCountries = async (query) => {
     const url = query ? `https://restcountries.com/v3.1/name/${query}` : 'https://restcountries.com/v3.1/all'
     const response = await fetch(url);
+    debugger;
     countries.value = await response.json();
   }
 
