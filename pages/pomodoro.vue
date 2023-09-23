@@ -1,9 +1,10 @@
 <template>
     <div class="flex h-screen">
-        <div class="bg-zinc-300 w-1/3">
-            <p>Interval fired: {{ counter }}</p>
+        <div class="bg-zinc-300 w-1/3" >
+            <button @click="showFormFunc()">salam</button>
+            <p>{{ counter }}</p>
         </div>
-       <div class="w-2/3 grid grid-rows-5 grid-flow-col gap-2 grid-cols-3 gap-2 my-3">
+       <div v-show="showForm" class="w-2/3 grid grid-rows-5 grid-flow-col gap-2 grid-cols-3 gap-2 my-3">
         <div  class="col-start-3 flex justify-around">
             <label >statistic</label>
             <label >profile</label>
@@ -26,20 +27,26 @@
     </div>
 </template>
 <script setup>
-import { useInterval } from '@vueuse/core'
-
 const name =ref('') 
 const email =ref('') 
 const counter=ref(20)
 const saveButtonIsInvalid=ref(true)
+const showForm=ref(false)
+const showFormFunc =()=>{
+    showForm.value=true;
+}
  const validateEmail =(value)=>{
         saveButtonIsInvalid.value=value;
 }
+
 const saveClick =()=>{
-    debugger;
-     counter.value = useInterval(1000)
+    setInterval(() => {
+        if(counter.value>0){
+        counter.value=counter.value-1
+        }
+  }, 2000)
 }
 const cancelClick=function(){
-    debugger;
+    showForm.value=false;
 }
 </script>
