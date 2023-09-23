@@ -41,6 +41,8 @@ const showForm=ref(false)
 const interval=ref('')
 const showFormFunc =()=>{
     counter.value=20;
+    name.value='';
+    email.value='';
     clearInterval(interval.value);
     showForm.value=true;
 }
@@ -57,6 +59,7 @@ const saveClick =()=>{
   }, 2000)
 }
 const cancelClick=function(){
+    clearInterval(interval.value);
     showForm.value=false;
 }
 </script>
